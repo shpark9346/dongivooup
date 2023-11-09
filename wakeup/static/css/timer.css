@@ -1,0 +1,76 @@
+.timer-ment {
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.setting-time {
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.circle-box {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.circle-box .item {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-box .item.back {
+    display: none;
+    z-index: -1;
+}
+
+
+.circle-box .item .ment {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-box .item .ment .label {
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.circle-box .item .ment .time {
+    text-align:center;
+    line-height: 40px;
+    width: 100%;
+    font-size: 32px;
+    color: turquoise;
+}
+
+svg {
+    transform: rotate(-90deg);
+}
+
+.circle_animation {
+  stroke-dasharray: 630; 
+  stroke-dashoffset: 630;
+  transition: all 1s linear;
+}
+
+/* 타이머 */
+.timer {
+
+}
+
+/* 타이머 동그라미 */
+.time-circle {
+    display: none;
+    transition: all 1s linear;
+}
+

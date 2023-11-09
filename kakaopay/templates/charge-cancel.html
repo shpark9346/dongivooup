@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제취소</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- user 아이콘 -->
+                <div class="item">
+                    <a href="">
+                        <img src="{% static 'img/user.png'%}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png'%}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="">
+                        <img src="{% static 'img/setting.png'%}" alt="setting" width="28px" height="28px">
+                    </a>
+                </div>
+            </div>
+        </header>
+    
+
+        <div class="center-box">
+            
+            <section class="intro intro-1">
+                <div class="flex flex-column flex-center align-items-center">
+                    <div class="intro-item">
+                        <img src="{% static 'img/clock-mint.png' %}" alt="결제 취소">
+                    </div>
+                    
+                    <h2 class="main-title">결제가 취소되었습니다.</h2>
+    
+                    <div class="intro-item">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section class="intro">
+                <a href="#" class="btn btn-primary">돌아가기</a>
+            </section>
+
+        </div>
+
+        
+
+    </div>
+
+
+</body>
+</html> 

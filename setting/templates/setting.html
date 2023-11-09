@@ -1,0 +1,84 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="{{ request.META.HTTP_REFERER }}">
+                        <img src="{% static 'img/chev-left.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="">
+                        <!-- <img src="img/setting.png" alt="setting" width="28px" height="28px"> -->
+                    </a>
+                </div>
+            </div>
+        </header>
+
+
+        <section class="givoo-box">
+
+            <div class="top">
+                <div class="inner flex flex-center flex-column align-items-center">
+                    <h3>나의 기부 포인트</h3>
+                    <div class="point-box flex align-items-center">
+                        <img src="{% static 'img/coin.png' %}" alt="coin">
+                        <p class="point">{{ point.balance }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom flex">
+                <div class="left">
+                    <a href="{% url 'kakao:pay' %}" class="btn-givoo">충전하기</a>
+                </div>
+                
+                <div class="right">
+                    <a href="#" class="btn-givoo">기부 금액 설정</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="list-box">
+            <ul class="list">
+                <li><a href="{% url 'setting:time-list' %}">기상 시간 설정</a></li>
+                <li><a href="#" class="ready">기상 인증 방법 (준비 중)</a></li>
+            </ul>
+        </section>
+
+        <section class="list-box">
+            <ul class="list">
+                <li><a href="{% url 'user:profile' %}">회원 정보 수정</a></li>
+                <li><a href="#">로그아웃</a></li>
+            </ul>
+        </section>
+    
+                
+
+    </div>
+
+
+</body>
+</html> 

@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>충전 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="">
+                        <img src="{% static 'img/chev-left.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="">
+                        <!-- <img src="img/setting.png" alt="setting" width="28px" height="28px"> -->
+                    </a>
+                </div>
+            </div>
+        </header>
+
+
+        <section class="charge-title">
+            <h2 class="main-title">충전하기</h2>
+        </section>
+
+        
+        <section class="list-box my-point">
+            <ul class="list">
+                <li>
+                    <a href="#" class="flex flex-column">
+                        <div class="item label">
+                            나의 기부 포인트
+                        </div>
+                        <div class="item point">
+                            <strong>{{point.balance}}</strong>
+                            <span>포인트</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="text-box">
+            <h3 class="sub-label">충전 단위 선택</h3>
+        </section>
+
+        <section class="list-box charge-point">
+            <ul class="list">
+                <li class="flex">
+                    <a href="#">
+                        <input type="radio" name="point" class="input-radio" id="pt-1">
+                        <label for="pt-1" class="radio-pt"></label>
+                        <label for="pt-1" class="btn-radio">
+                            <strong>10,000</strong>포인트
+                        </label>
+                    </a>
+                </li>
+                <li class="flex">
+                    <a href="#">
+                        <input type="radio" name="point" class="input-radio" id="pt-2">
+                        <label for="pt-2" class="radio-pt"></label>
+                        <label for="pt-2" class="btn-radio">
+                            <strong>30,000</strong>포인트
+                        </label>
+                    </a>
+                </li>
+                <li class="flex">
+                    <a href="#">
+                        <input type="radio" name="point" class="input-radio" id="pt-3">
+                        <label for="pt-3" class="radio-pt"></label>
+                        <label for="pt-3" class="btn-radio">
+                            <strong>50,000</strong>포인트
+                        </label>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+
+        <section class="text-box">
+            <h3 class="sub-label">결제 수단 선택</h3>
+        </section>
+
+        <section class="card-box">
+            <ul>
+                <li>
+                    <div class="card">
+                        <a href="#" class="card-link"></a>
+                        <div class="item">
+                            <a href="{% url 'kakao:logic' %}">
+                                <img src="{% static 'img/kakaopay.png' %}" alt="카카오페이">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <!-- <input class="card-text" type="submit" value="카카오페이"> -->
+                            <p class="card-text" onclick="submit()">카카오페이</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <a href="#" class="card-link"></a>
+                        <div class="item">
+                            <img src="{% static 'img/card.png' %}" alt="카드">
+                        </div>
+                        <div class="item">
+                            <p class="card-text">일반 결제</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+
+    </div>
+
+    <script> 
+        function submit() {
+            alert('aaa')
+            // var form = $('#form')
+            // form.submit()
+        }
+    </script>
+
+
+</body>
+</html> 

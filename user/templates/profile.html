@@ -1,0 +1,81 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="{{ request.META.HTTP_REFERER }}">
+                        <img src="{% static 'img/chev-left.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main'%}">
+                        <img src="{% static 'img/logo.png'%}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 추가 -->
+                <div class="item">
+                    <a href="">
+                        <!-- <img src="img/add.png" alt="setting" width="30px" height="30px"> -->
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="title">
+            <h2 class="main-title">회원정보</h2>
+        </section>
+
+        <section class="join input">
+            <div class="inner flex flex-column flex-center align-items-center">
+                <div class="item">
+                    <label for="input-id" class="input-label">이메일</label>
+                    <input type="text" id="input-id" name="id" placeholder="dongivooup@email.com">
+                </div>
+                
+                <div class="btn-box">
+                    <a href="#" class="btn btn-primary">비밀번호 변경</a>
+                </div>
+                
+                <div class="item">
+                    <label for="input-name" class="input-label">이름</label>
+                    <input type="text" id="input-name" name="name" placeholder="홍길동">
+                </div>
+                
+                <div class="item">
+                    <label for="input-nickname" class="input-label">닉네임</label>
+                    <div class="input-box">
+                        <input type="text" id="input-nickname" name="nickname" placeholder="10자 이내">
+                        <a href="javascript:;" class="btn btn-sm btn-nick">중복확인</a>
+                    </div>
+                    <span class="chk-txt check">사용 가능한 닉네임입니다.</span>
+                </div>
+                
+                <div class="item">
+                    <label for="input-phone" class="input-label">핸드폰 번호</label>
+                    <input type="text" id="input-phone" name="phone" placeholder="01012345678">
+                </div>
+            </div>
+        </section>
+
+        <section class="btn-box">
+            <a href="#" class="btn btn-primary">변경사항 저장</a>
+        </section>
+
+    </div>
+</body>
+</html>

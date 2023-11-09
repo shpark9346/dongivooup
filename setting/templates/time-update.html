@@ -1,0 +1,189 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}?after">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}?after">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="{{ request.META.HTTP_REFERER }}">
+                        <img src="{% static 'img/chev-left.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 추가 -->
+                <div class="item">
+                    <a href="">
+                        <!-- <img src="img/add.png" alt="setting" width="30px" height="30px"> -->
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="time-set flex flex-column flex-center align-items-center">
+            <h2 class="main-title">기상 예정 시간</h2>
+            <form action="{% url 'setting:time-update' time.id %}" method="POST">
+                {% csrf_token %}
+                <div class="hour-box">
+                    <input type="number" name="hour" class="input-time" min="0" max="12" value="{{time.hour}}" id="input-hour" maxlength="2">
+                    <span>:</span>
+                    <input type="number" name="min" class="input-time" min="0" max="59" value="{{time.min}}" id="input-min" maxlength="2">
+                </div>
+
+                <div class="ampm-box">
+                    <div class="inner flex flex-center">
+                        {% if time.ampm == 'am' %}
+                        <input type="radio" name="ampm" value="am" id="input-am" class="input-ampm" checked>
+                        <label for="input-am" class="lb-ampm">AM</label>
+
+                        <input type="radio" name="ampm" value="pm" id="input-pm" class="input-ampm">
+                        <label for="input-pm" class="lb-ampm">PM</label>
+                        {% else %}
+                        <input type="radio" name="ampm" value="am" id="input-am" class="input-ampm">
+                        <label for="input-am" class="lb-ampm">AM</label>
+
+                        <input type="radio" name="ampm" value="pm" id="input-pm" class="input-ampm" checked>
+                        <label for="input-pm" class="lb-ampm">PM</label>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="date-box">
+                    
+                    <div class="lb-box flex flex-around align-items-center">
+                        {% if '월' in time.date or time.date == '평일' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-mon" value="월" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-mon" value="월">
+                        {% endif %}
+                        <label for="date-mon" class="lb-date">월</label>
+                        
+                        {% if '화' in time.date or time.date == '평일' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-tue" value="화" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-tue" value="화">
+                        {% endif %}
+                        <label for="date-tue" class="lb-date">화</label>
+                        
+                        {% if '수' in time.date or time.date == '평일' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-wed" value="수" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-wed" value="수">
+                        {% endif %}
+                        <label for="date-wed" class="lb-date">수</label>
+
+                        {% if '목' in time.date or time.date == '평일' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-thu" value="목" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-thu" value="목">
+                        {% endif %}
+                        <label for="date-thu" class="lb-date">목</label>
+                        
+                        {% if '금' in time.date or time.date == '평일' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-fri" value="금" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-fri" value="금">
+                        {% endif %}
+                        <label for="date-fri" class="lb-date">금</label>
+
+                        {% if '토' in time.date or time.date == '주말' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-sat" value="토" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-sat" value="토">
+                        {% endif %}
+                        <label for="date-sat" class="lb-date">토</label>
+                        
+                        {% if time.date != '평일' and time.date != '매일' and '일' in time.date or time.date == '주말' or time.date == '매일' %}
+                        <input type="checkbox" name="date" class="input-date" id="date-sun" value="일" checked>
+                        {% else %}
+                        <input type="checkbox" name="date" class="input-date" id="date-sun" value="일">
+                        {% endif %}
+                        <label for="date-sun" class="lb-date">일</label>
+                    </div>
+
+                </div>
+            
+                <div class="btn-box">
+                    <input class='btn btn-secondary' type="submit" value="기상 시간 설정">
+                </div>
+            </form>
+
+        </section>
+
+
+
+                
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function() {
+
+            $('.input-time').on('keyup', function(e) {
+                let input = $(this).val()
+
+                if( e.keyCode != 38 && e.keyCode != 40 )
+                    return
+                    
+                if( input == undefined ) {
+                    return
+                }
+                
+                if( input < 10 && input >= 0 ) {
+                    input = '0' + input
+                }
+                $(this).val(input)
+            })
+
+
+            $('#input-hour').on('keyup', function(e) {
+                let input = $(this).val()
+
+                if( input > 12 ) {
+                    input = 12
+                    alert('최대 12시 까지 입력가능합니다.')
+                }
+                if( input < 0 ) {
+                    input = '00'
+                    alert('최소 00시 까지 입력가능합니다.')
+                }
+                $(this).val(input)
+            })
+
+            $('#input-min').on('keyup', function(e) {
+                let input = $(this).val()
+
+                if( input > 59 ) {
+                    input = 59
+                    alert('최대 59분 까지 입력가능합니다.')
+                }
+                if( input < 0 ) {
+                    input = '00'
+                    alert('최소 00시 까지 입력가능합니다.')
+                }
+                $(this).val(input)
+            })
+
+        })
+
+    </script>
+</body>
+</html> 

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인증 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- user 아이콘 -->
+                <div class="item">
+                    <a href="{% url 'user:profile' %}">
+                        <img src="{% static 'img/user.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="{% url 'setting:setting'%}">
+                        <!-- <img src="img/setting.png" alt="setting" width="28px" height="28px"> -->
+                    </a>
+                </div>
+            </div>
+
+        </header>
+    
+
+        <section class="title">
+            <h2 class="sub-title">아래 조합을 똑같이 입력해주세요.</h2>
+        </section>
+        
+        <section class="confirm">
+            <!-- 인증번호 -->
+            <div class="confirm-box">
+                <h2 class="confirm-num">17@6#</h2>
+            </div>
+
+            <!-- 인증번호 입력칸 -->
+            <div class="confirm-input">
+                <input type="text" name="num" class="confirm-input" maxlength="1">
+                <input type="text" name="num" class="confirm-input" maxlength="1">
+                <input type="text" name="num" class="confirm-input" maxlength="1">
+                <input type="text" name="num" class="confirm-input" maxlength="1">
+                <input type="text" name="num" class="confirm-input" maxlength="1">
+            </div>
+
+        </section>
+
+        <section class="confirm-pad">
+            <div class="grid col-3">
+                <div class="item"><a href="" class="num">1</a></div>
+                <div class="item"><a href="" class="num">2</a></div>
+                <div class="item"><a href="" class="num">3</a></div>
+                <div class="item"><a href="" class="num">4</a></div>
+                <div class="item"><a href="" class="num">5</a></div>
+                <div class="item"><a href="" class="num">6</a></div>
+                <div class="item"><a href="" class="num">7</a></div>
+                <div class="item"><a href="" class="num">8</a></div>
+                <div class="item"><a href="" class="num">9</a></div>
+                <div class="item"><a href="" class="num">@</a></div>
+                <div class="item"><a href="" class="num">0</a></div>
+                <div class="item"><a href="" class="num">#</a></div>
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+</html> 

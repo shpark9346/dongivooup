@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main'%}">
+                        <img src="{% static 'img/logo.png'%}" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="title">
+            <h2 class="main-title">회원가입</h2>
+        </section>
+
+        <section class="join input">
+            <div class="inner flex flex-column flex-center align-items-center">
+                <div class="item">
+                    <label for="input-id" class="input-label">이메일</label>
+                    <input type="text" id="input-id" name="id" placeholder="dongivooup@email.com">
+                </div>
+                
+                <div class="item">
+                    <label for="input-pw" class="input-label">비밀번호</label>
+                    <input type="password" id="input-pw" name="pw" placeholder="영문, 숫자, 특수문자 포함 8자이상">
+                </div>
+                
+                <div class="item">
+                    <label for="input-pw-chk" class="input-label">비밀번호 확인</label>
+                    <input type="password" id="input-pw-chk" name="pw-chk" placeholder="비밀번호를 다시 입력해주세요">
+                    <span class="chk-txt error">비밀번호가 일치하지 않습니다.</span>
+                </div>
+                
+                <div class="item">
+                    <label for="input-name" class="input-label">이름</label>
+                    <input type="text" id="input-name" name="name" placeholder="홍길동">
+                </div>
+                
+                <div class="item">
+                    <label for="input-nickname" class="input-label">닉네임</label>
+                    <div class="input-box">
+                        <input type="text" id="input-nickname" name="nickname" placeholder="10자 이내">
+                        <a href="javascript:;" class="btn btn-sm btn-nick">중복확인</a>
+                    </div>
+                    <span class="chk-txt check">사용 가능한 닉네임입니다.</span>
+                </div>
+                
+                <div class="item">
+                    <label for="input-phone" class="input-label">핸드폰 번호</label>
+                    <input type="text" id="input-phone" name="phone" placeholder="01012345678">
+                </div>
+            </div>
+        </section>
+
+        <section class="btn-box">
+            <a href="#" class="btn btn-primary">회원가입</a>
+        </section>
+
+    </div>
+</body>
+</html>

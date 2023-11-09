@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- user 아이콘 -->
+                <div class="item">
+                    <a href="{% url 'user:profile' %}">
+                        <img src="{% static 'img/user.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="{% url 'setting:setting'%}">
+                        <img src="{% static 'img/setting.png' %}" alt="setting" width="28px" height="28px">
+                    </a>
+                </div>
+            </div>
+        </header>
+    
+        <section class="intro intro-1">
+            <div class="flex flex-column flex-center align-items-center">
+                <div class="intro-item">
+                    <img src="{% static 'img/intro_1.png' %}" alt="intro_1">
+                </div>
+                <div class="intro-item">
+                    <p>
+                        매일 아침 알람을 아무리 맞춰도 <br>
+                        끄고 다시 잠드시나요?
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="intro intro-2">
+            <div class="flex flex-column flex-center align-items-center">
+                <div class="intro-item">
+                    <img src="{% static 'img/intro_2.png' %}" alt="intro_2">
+                </div>
+                <div class="intro-item">
+                    <p>
+                        하지만 나의 소중한 돈이 <br>
+                        걸려있다면 어떨까요?
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="intro intro-3">
+            <div class="flex flex-column flex-center align-items-center">
+                <div class="intro-item">
+                    <img src="{% static 'img/intro_3.png' %}" alt="intro_3">
+                </div>
+                <div class="intro-item">
+                    <p>
+                        기상에 성공하면 우리가,  <br>
+                        실패하면 당신이 <br>
+                        일정 금액을 기부합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="intro intro-4">
+            <div class="flex flex-column flex-center align-items-center">
+                <div class="intro-item">
+                    <img src="{% static 'img/intro_4.png' %}" alt="intro_4">
+                </div>
+                <div class="intro-item">
+                    <p>
+                        보람찬 하루의 시작을 위해 <br>
+                        지금 '돈기부업'과 함께하세요
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro">
+            {% if user.is_authenticated %}
+                <a href="{% url 'main:main' %}" class="btn btn-primary">시작하기</a>
+            {% else %}
+                <a href="{% url 'user:login' %}" class="btn btn-primary">시작하기</a>
+            {% endif %}
+            
+        </section>
+        
+
+    </div>
+
+
+</body>
+</html> 

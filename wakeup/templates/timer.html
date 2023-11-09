@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/timer.css'%}">
+    <script src="{% static 'js/jquery-3.6.0.min.js'%}"></script>  <!-- 제이쿼리 라이브러리 포함 -->
+
+</head>
+
+<body>
+
+
+    <div class="timer">
+        <div class="circle-timer">
+            <div class="timer-slot">
+                <div class="timer-lt"> </div>
+            </div>
+            <div class="timer-slot">
+                <div class="timer-rt"></div>
+            </div>
+            <div class="count"></div>
+        </div>
+    </div>
+
+    <script>
+        var initialCount = 2400,
+            count = initialCount,
+            timerPause = false;
+
+        function timer() {
+            if (!timerPause) {
+                count = count - 1;
+                if (count <= -1) {
+                    count = initialCount;
+                    var el = $(".circle-timer");
+                    el.before(el.clone(true)).remove();
+                }
+                // 여기서부터 수정하겠습니다.
+                let minute = Number(count/60).toFixed(0)
+                $(".timer .count").text(minute);
+            }
+        }
+        setInterval(timer, 1000);
+
+        $(".circle-timer").click(function () {
+            $(this).toggleClass('paused');
+            if ($(this).hasClass('paused')) {
+                timerPause = true;
+            } else {
+                timerPause = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

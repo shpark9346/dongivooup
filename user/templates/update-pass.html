@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 변경</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="">
+                        <img src="img/chev-left.png" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="/main.html">
+                        <img src="img/logo.png" alt="logo">
+                    </a>
+                </div>
+
+                <!-- 추가 -->
+                <div class="item">
+                    <a href="">
+                        <!-- <img src="img/add.png" alt="setting" width="30px" height="30px"> -->
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="title">
+            <h2 class="main-title">비밀번호 변경</h2>
+        </section>
+
+        <section class="join input">
+            <div class="inner flex flex-column flex-center align-items-center">
+                
+                <div class="item">
+                    <label for="input-pw" class="input-label">기존 비밀번호</label>
+                    <input type="password" id="input-pw" name="pw" placeholder="기존 비밀번호를 입력하세요">
+                </div>
+
+                <div class="item">
+                    <label for="input-new-pw" class="input-label">비밀번호</label>
+                    <input type="password" id="input-new-pw" name="new-pw" placeholder="새로운 비밀번호를 입력하세요">
+                </div>
+                
+                <div class="item">
+                    <label for="input-pw-chk" class="input-label">비밀번호 확인</label>
+                    <input type="password" id="input-pw-chk" name="pw-chk" placeholder="비밀번호를 다시 입력해주세요">
+                    <span class="chk-txt error">비밀번호가 일치하지 않습니다.</span>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="btn-box">
+            <a href="#" class="btn btn-primary">비밀번호 변경</a>
+        </section>
+
+    </div>
+</body>
+</html>

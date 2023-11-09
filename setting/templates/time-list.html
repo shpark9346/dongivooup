@@ -1,0 +1,67 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 뒤로가기 -->
+                <div class="item">
+                    <a href="{{ request.META.HTTP_REFERER }}">
+                        <img src="{% static 'img/chev-left.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 추가 -->
+                <div class="item">
+                    <a href="{% url 'setting:time-set' %}">
+                        <img src="{% static 'img/add.png' %}" alt="setting" width="30px" height="30px">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="time-list-box">
+            <ul class="list">
+                {% if time_index %}
+                    {% for time in time_index %}
+                        <li>
+                            <a href="{% url 'setting:time-update' time.id %}" class="flex flex-between align-items-center">
+                                <div class="left">
+                                    <span class="time">{{time.hour}}:{{time.min}}</span>
+                                    <span class="ampm">{{time.ampm}}</span>
+                                </div>
+                                <div class="right">
+                                    {% for date in time.date %}
+                                    <span class="date">{{date}}</span>
+                                    {% endfor %}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+    
+                
+
+    </div>
+
+
+</body>
+</html> 

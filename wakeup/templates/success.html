@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>완료 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- user 아이콘 -->
+                <div class="item">
+                    <a href="{% url 'user:profile' %}">
+                        <img src="{% static 'img/user.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="{% url 'setting:setting'%}">
+                        <img src="{% static 'img/setting.png' %}" alt="setting" width="28px" height="28px">
+                    </a>
+                </div>
+            </div>
+        </header>
+    
+        <section class="intro intro-1">
+            <div class="flex flex-column flex-center align-items-center">
+                <div class="intro-item">
+                    <img src="{% static 'img/success.png' %}" alt="intro_1">
+                </div>
+                
+                <h2 class="main-title">축하합니다!</h2>
+
+                <div class="intro-item">
+                    <p>
+                        기상 인증에 성공하여 <br>
+                        돈기부업에서 500원을 기부했습니다
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="intro">
+            <a href="{% url 'main:main' %}" class="btn btn-primary">메인으로 돌아가기</a>
+        </section>
+        
+
+    </div>
+
+
+</body>
+</html> 

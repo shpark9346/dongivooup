@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main'%}">
+                        <img src="{% static 'img/logo.png'%}" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="login input">
+            <div class="inner flex flex-column flex-center align-items-center">
+                <!-- ID -->
+                <div class="item">
+                    <label for="input-id" class="input-label">ID</label>
+                    <input type="text" id="input-id" name="id" placeholder="dongivooup@email.com">
+                </div>
+                
+                <!-- PW -->
+                <div class="item">
+                    <label for="input-pw" class="input-label">Password</label>
+                    <input type="password" id="input-pw" name="pw" placeholder="영문, 숫자, 특수문자 포함 8자이상">
+                </div>
+            </div>
+        </section>
+
+        <section class="btn-box">
+            <a href="#" class="btn btn-primary">로그인</a>
+        </section>
+
+        <section class="sns-box flex flex-around">
+            <a href="{% url 'user:google_login' %}"><img src="{% static 'img/type=google.png'%}" alt="google"></a>
+            <a href="{% url 'user:naver_login' %}"><img src="{% static 'img/type=naver.png'%}" alt="naver"></a>
+            <a href="{% url 'user:kakao_login' %}"><img src="{% static 'img/type=kakao.png'%}" alt="kakao"></a>
+        </section>
+
+        <section class="join-box">
+            <a href="{% url 'user:signup'%}">회원가입</a>
+        </section>
+
+    </div>
+</body>
+</html>

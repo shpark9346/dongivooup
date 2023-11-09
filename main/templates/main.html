@@ -1,0 +1,60 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설명 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="flex flex-around header">
+                <!-- user 아이콘 -->
+                <div class="item">
+                    <a href="{% url 'user:profile'%}">
+                        <img src="{% static 'img/user.png' %}" alt="user" width="28px" height="28px">
+                    </a>
+                </div>
+                
+                <!-- 로고 -->
+                <div class="item">
+                    <a href="{% url 'main:main'%}">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                
+                <!-- 세팅 -->
+                <div class="item">
+                    <a href="{% url 'setting:setting'%}">
+                        <img src="{% static 'img/setting.png' %}" alt="setting" width="28px" height="28px">
+                    </a>
+                </div>
+            </div>
+
+        </header>
+    
+
+        <section class="title">
+            <h2 class="main-title">기상 예정 시간을 <br> 설정해주세요</h2>
+        </section>
+        
+        <section class="timer">
+            <div class="circle">
+                <h2 class="main-title">기상 예정 시간 <br> 30분 전부터 <br> 인증 가능합니다</h2>
+            </div>
+        </section>
+
+        <section class="intro">
+            <a href="{% url 'setting:time-list' %}" class="btn btn-secondary">기상 시간 설정하기</a>
+        </section>
+        
+
+    </div>
+
+
+</body>
+</html> 
